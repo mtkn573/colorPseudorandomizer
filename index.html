@@ -17,12 +17,22 @@
         #generatedColor{
             background-color:rgba(random(0,255),random(0,255),random(0,255),random(0,255));
         }
+        #savedColors{
+            width:100%;
+            display:flex;
+            gap:8px;
+            overflow-x:auto;
+            overflow-y:hidden;
+        }
+        #savedColors>div{
+            flex:0 0 120px;
+        }
     </style>
 </head>
 <body>
     <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;">
         <div style="width:100%;">saved colors:</div>
-        <div id="savedColors"style="width:100%;display:flex;"></div>
+        <div id="savedColors"></div>
         <div style="width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
             <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
                 <div>generated color:</div>
