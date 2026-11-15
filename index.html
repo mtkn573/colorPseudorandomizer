@@ -17,22 +17,12 @@
         #generatedColor{
             background-color:rgba(random(0,255),random(0,255),random(0,255),random(0,255));
         }
-        #savedColors{
-            width:100%;
-            display:flex;
-            gap:8px;
-            overflow-x:auto;
-            overflow-y:hidden;
-        }
-        #savedColors>div{
-            flex:0 0 120px;
-        }
     </style>
 </head>
 <body>
     <div style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;">
         <div id="savedColorsLabel" style="width:100%;display:none;">saved colors:</div>
-        <div id="savedColors"></div>
+        <div id="savedColors"style="width:100%;display:flex;flex-direction:column;overflow-y:auto;"></div>
         <div style="width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
             <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
                 <div>generated color:</div>
@@ -78,6 +68,7 @@
                 localStorage.setItem(`data`,new XMLSerializer().serializeToString(xmlDocument))
                 document.getElementById(`savedColors`).innerHTML+=`<div><div>${colorValue}</div><div style="width:100%;height:87px;background-color:${colorValue};border-style:solid;border-width:1px;border-radius:7px;"></div></div>`
                 document.getElementById(`savedColorsLabel`).style.display=`block`
+                document.getElementById(`savedColors`).scrollTop=document.getElementById(`savedColors`).scrollHeight
             })
             data=localStorage.getItem(`data`)
             if(data!=null){
@@ -93,6 +84,7 @@
                     document.getElementById(`savedColorsLabel`).style.display=`block`
                 }
             }
+            document.getElementById(`savedColors`).scrollTop=document.getElementById(`savedColors`).scrollHeight
         }
     </script>
 </body>
